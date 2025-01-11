@@ -36,4 +36,7 @@ require('lazy').setup({
     -- Install missing plugins on startup --
     missing = true,
   },
+  ui = {
+    border = 'rounded',
+  },
 })
