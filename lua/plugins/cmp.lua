@@ -27,6 +27,30 @@ return {
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<cr>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
       })
 
       opts.sources = cmp.config.sources({
