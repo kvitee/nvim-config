@@ -9,3 +9,6 @@ require('core.mappings')
 
 -- Lazy.nvim setup --
 require('core.lazy')
+
+-- Set colorscheme --
+vim.cmd.colorscheme('ayu')

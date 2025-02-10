@@ -1,6 +1,7 @@
 return {
   {
     'ellisonleao/gruvbox.nvim',
+    lazy = true,
     config = function()
       require('gruvbox').setup({
         -- Disable italics for strings and comments --
@@ -9,8 +10,6 @@ return {
           comments = false,
         },
       })
-
-      vim.cmd.colorscheme('gruvbox')
     end
   },
   {
@@ -22,8 +21,7 @@ return {
 
       require('ayu').setup({
         overrides = {
-          -- Disable italics for comments --
-          Comment = { fg = colors.comment },
+          LineNr = { fg = colors.ui }
         },
       })
     end,
