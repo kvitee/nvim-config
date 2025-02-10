@@ -18,23 +18,24 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Set mapleader and maplocalleader --
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
 -- Setup lazy.nvim --
 require('lazy').setup({
   spec = {
-    -- Import plugin specs from lua/plugins module --
     import = 'plugins',
   },
   rocks = {
-    -- Disable rocks --
     enabled = false,
   },
   install = {
-    -- Install missing plugins on startup --
     missing = true,
+  },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    enabled = false,
+    notify = false,
   },
   ui = {
     border = 'rounded',
