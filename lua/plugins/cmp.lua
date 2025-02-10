@@ -34,8 +34,6 @@ return {
             vim.schedule(function()
               vim.snippet.jump(1)
             end)
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
