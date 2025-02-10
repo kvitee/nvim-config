@@ -1,11 +1,14 @@
+local ft = {
+  'python',
+  'javascript',
+  'typescript',
+  'prisma',
+}
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    ft = {
-      'python',
-      'javascript',
-      'typescript',
-    },
+    ft = ft,
     main = 'nvim-treesitter.configs',
     opts = {
       ensure_installed = ft,
