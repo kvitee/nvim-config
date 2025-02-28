@@ -1,11 +1,11 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
     },
     keys = {
       { 'nn', '<cmd>Neotree float<cr>' },
@@ -14,19 +14,17 @@ return {
       { 'nc', '<cmd>Neotree close<cr>' },
     },
     opts = {
-      popup_border_style = "rounded",
-      git_status = {
-        symbols = {
-          added     = "✚",
-          modified  = "",
-          deleted   = "✖",
-          renamed   = "󰁕",
-          untracked = "",
-          ignored   = "",
-          unstaged  = "󰄱",
-          staged    = "",
-          conflict  = "",
-        }
+      popup_border_style = 'rounded',
+      default_component_configs = {
+        git_status = {
+          symbols = {
+            modified  = '',
+            renamed   = '',
+            ignored   = '',
+            unstaged  = '',
+            staged    = '',
+          },
+        },
       },
       filesystem = {
         filtered_items = {
