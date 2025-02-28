@@ -18,8 +18,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Set mapleaders --
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
+
+-- Quick open Lazy menu --
+vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = 'Lazy | Menu' })
 
 -- Setup lazy.nvim --
 require('lazy').setup({
@@ -45,5 +49,10 @@ require('lazy').setup({
   },
   ui = {
     border = 'rounded',
+    icons = {
+      ft = "",
+      loaded = "",
+      not_loaded = "",
+    },
   },
 })
