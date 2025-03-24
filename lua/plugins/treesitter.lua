@@ -3,6 +3,8 @@ local ft = {
   'javascript',
   'typescript',
   'prisma',
+  'c',
+  'cpp',
 }
 
 return {

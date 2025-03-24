@@ -2,10 +2,13 @@ local servers = {
   ft = {
     'typescript',
     'python',
+    'c',
+    'cpp',
   },
   ls = {
     'ts_ls',
     'pyright',
+    'clangd',
   },
 }
 
