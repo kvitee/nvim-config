@@ -23,7 +23,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 -- Quick open Lazy menu --
-vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = 'Lazy | Menu' })
+vim.keymap.set('n', '<leader>lm', '<cmd>Lazy<cr>', { desc = 'Lazy | Menu' })
 
 -- Setup lazy.nvim --
 require('lazy').setup({
@@ -50,9 +50,9 @@ require('lazy').setup({
   ui = {
     border = 'rounded',
     icons = {
-      ft = "",
-      loaded = "",
-      not_loaded = "",
+      ft = '',
+      loaded = '',
+      not_loaded = '',
     },
   },
 })
