@@ -9,6 +9,9 @@ vim.opt.mouse = ''
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Highlight 80th column --
+vim.opt.colorcolumn = '80'
+
 -- Disable backup- and swapfiles --
 vim.opt.backup = false
 vim.opt.swapfile = false
