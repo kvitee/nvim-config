@@ -1,9 +1,10 @@
 return {
   {
     'williamboman/mason.nvim',
-    init = function()
-      vim.keymap.set('n', '<leader>mm', '<cmd>:Mason<cr>', { desc = 'Mason | Menu' })
-    end,
+    lazy = false,
+    keys = {
+      { '<leader>mm', '<cmd>:Mason<cr>', { desc = 'Mason | Menu' }},
+    },
     opts = {
       ui = {
         border = 'rounded',
