@@ -3,8 +3,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 -- Go to next or previous tab by L or H respectively --
-vim.keymap.set('n', 'L', '<cmd>tabnext<cr>')
-vim.keymap.set('n', 'H', '<cmd>tabprev<cr>')
+vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'Tab | Next' })
+vim.keymap.set('n', 'H', '<cmd>tabprev<cr>', { desc = 'Tab | Previous' })
 
 -- Buffers --
 vim.keymap.set('n', '<leader>bn', '<cmd>bn<cr>', { desc = 'Buffers | Next buffer' })
