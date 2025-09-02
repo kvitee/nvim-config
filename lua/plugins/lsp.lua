@@ -25,6 +25,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     ft = servers.ft,
+    cmd = 'LspInfo',
     config = function()
       local nvim_lsp = require('lspconfig')
 
@@ -35,23 +36,62 @@ return {
         })
       end
 
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.HINT] = '󰌵 ',
+            [vim.diagnostic.severity.INFO] = ' ',
+          },
+          linehl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+          },
+          numhl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+          },
+        },
+        float = {
+          border = 'rounded',
+        },
+      })
+
       vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float)
-      vim.keymap.set('n', '<leader>lD', vim.diagnostic.setloclist)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-        callback = function(ev)
-          local opts = { buffer = ev.buf }
+        callback = function(e)
+          local opts = {
+            buffer = e.buf,
+            noremap = true,
+            silent = true
+          }
 
-          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+          vim.api.nvim_buf_set_option(e.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+          vim.keymap.set('n', '<leader>k', function()
+            vim.lsp.buf.hover({
+              border = 'single',
+              focusable = false
+            })
+          end, opts)
+          vim.keymap.set('n', '<leader>K', function()
+            vim.lsp.buf.signature_help({
+              border = 'single',
+              focusable = false
+            })
+          end, opts)
 
           vim.keymap.set('n', '<leader>gd', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
           vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, opts)
-
-          vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', '<leader>K', vim.lsp.buf.signature_help, opts)
 
           vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, opts)
           vim.keymap.set({'n', 'v'}, '<leader>la', vim.lsp.buf.code_action, opts)
