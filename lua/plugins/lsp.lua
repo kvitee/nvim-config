@@ -4,11 +4,13 @@ local servers = {
     'python',
     'c',
     'cpp',
+    'rust',
   },
   ls = {
     'ts_ls',
     'pyright',
     'clangd',
+    'rust_analyzer',
   },
 }
 
