@@ -10,6 +10,7 @@ local ft = {
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    enabled = false,
     ft = ft,
     main = 'nvim-treesitter.configs',
     opts = {
