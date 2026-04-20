@@ -1,6 +1,6 @@
 --[[
-  Module contains vim built-in settings.
-]]--
+  Vim settings module.
+--]]
 
 -- Disable mouse --
 vim.opt.mouse = ''
@@ -22,15 +22,13 @@ vim.opt.scrolloff = 8
 -- File format and encoding --
 vim.opt.fileformat = 'unix'
 vim.opt.encoding = 'utf-8'
- 
+
 -- Auto indents --
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 -- Tab using spaces --
 vim.opt.expandtab = true
-
--- Size of expanded tabs (real tabs are default) --
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 

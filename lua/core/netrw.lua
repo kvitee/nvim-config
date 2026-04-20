@@ -1,6 +1,6 @@
 --[[
   Module contains settings of Vim built-in file explorer.
-]]--
+--]]
 
 -- Hide banner --
 vim.g.netrw_banner = 0
