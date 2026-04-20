@@ -14,11 +14,12 @@ return {
     main = 'ayu',
     opts = function()
       local colors = require('ayu.colors')
-      colors.generate()
+      colors.generate(false)
 
       return {
         overrides = {
-          LineNr = { fg = colors.ui }
+          LineNr = { fg = colors.ui },
+          Comment = { italic = false },
         },
       }
     end,
