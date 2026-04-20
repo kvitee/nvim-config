@@ -1,6 +1,7 @@
 return {
   {
-    'ggandor/leap.nvim',
+    url = 'https://codeberg.org/andyg/leap.nvim',
+    enabled = false,
     dependencies = {
       'tpope/vim-repeat',
     },
