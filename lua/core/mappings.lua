@@ -55,3 +55,39 @@ vim.api.nvim_create_autocmd('TabNewEntered', {
     end
   end,
 })
+
+vim.keymap.set('n', '<leader>cr', function()
+  if vim.fn.filereadable('Cargo.toml') == 0 then
+    vim.notify('Cargo project not found.', vim.log.levels.WARN)
+    return
+  end
+
+  vim.cmd('! cargo run')
+end, { desc = 'Cargo | Run' })
+
+vim.keymap.set('n', '<leader>ct', function()
+  if vim.fn.filereadable('Cargo.toml') == 0 then
+    vim.notify('Cargo project not found.', vim.log.levels.WARN)
+    return
+  end
+
+  vim.cmd('! cargo test --all-targets')
+end, { desc = 'Cargo | Test' })
+
+vim.keymap.set('n', '<leader>crr', function()
+  if vim.fn.filereadable('Cargo.toml') == 0 then
+    vim.notify('Cargo project not found.', vim.log.levels.WARN)
+    return
+  end
+
+  vim.cmd('! cargo run --release')
+end, { desc = 'Cargo | Run release' })
+
+vim.keymap.set('n', '<leader>ctr', function()
+  if vim.fn.filereadable('Cargo.toml') == 0 then
+    vim.notify('Cargo project not found.', vim.log.levels.WARN)
+    return
+  end
+
+  vim.cmd('! cargo test --all-targets --release')
+end, { desc = 'Cargo | Test release' })
