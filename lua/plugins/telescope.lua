@@ -10,20 +10,7 @@ return {
         build = 'make',
       },
     },
-    keys = function()
-      local builtin = require('telescope.builtin')
-
-      return {
-        { '<leader>ff', builtin.find_files, { desc = 'Telescope | Find files' }},
-        { '<leader>fg', builtin.live_grep, { desc = 'Telescope | Live grep' }},
-        { '<leader>fb',
-          function()
-            builtin.buffers({ initial_mode = 'normal' })
-          end,
-          { desc = 'Telescope | Buffers' }
-        },
-      }
-    end,
+    event = 'VeryLazy',
     opts = function()
       local actions = require('telescope.actions')
 
@@ -31,11 +18,11 @@ return {
         defaults = {
           mappings = {
             n = {
-              ['<C-CR>'] = actions.select_tab,
+              ['<C-Cr>'] = actions.select_tab,
               ['q'] = actions.close,
             },
             i = {
-              ['<C-CR>'] = actions.select_tab,
+              ['<C-Cr>'] = actions.select_tab,
               ['<C-q>'] = actions.close,
               ['<C-j>'] = actions.move_selection_next,
               ['<C-k>'] = actions.move_selection_previous,
@@ -67,6 +54,29 @@ return {
 
       telescope.setup(opts)
       telescope.load_extension('fzf')
+
+      local builtin = require('telescope.builtin')
+
+      vim.keymap.set(
+        'n',
+        '<leader>ff',
+        builtin.find_files,
+        { desc = 'Telescope | Find files' }
+      )
+
+      vim.keymap.set(
+        'n',
+        '<leader>fg',
+        builtin.live_grep,
+        { desc = 'Telescope | Live grep' }
+      )
+
+      vim.keymap.set(
+        'n',
+        '<leader>fb',
+        builtin.buffers,
+        { desc = 'Telescope | Buffers' }
+      )
     end,
   },
 }

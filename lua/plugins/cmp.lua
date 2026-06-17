@@ -7,6 +7,7 @@ return {
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-cmdline',
     },
+    event = 'InsertEnter',
     opts = function(_, opts)
       local cmp = require('cmp')
 
@@ -40,7 +41,7 @@ return {
           end
         end, { 'i', 's' }),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<cr>'] = cmp.mapping(function(fallback)
+        ['<Cr>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = #cmp.get_entries() == 1 })
           else
